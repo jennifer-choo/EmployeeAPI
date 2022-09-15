@@ -1,12 +1,14 @@
 package com.kainos.ea.resources;
 
 import com.kainos.ea.db.InsertEmployee;
+import io.swagger.annotations.Api;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
 @Path("/api")
+@Api("employee")
 public class WebService {
 
     @GET
