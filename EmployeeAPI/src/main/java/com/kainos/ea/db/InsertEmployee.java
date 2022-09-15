@@ -44,8 +44,7 @@ public class InsertEmployee {
                 Connection myConnection = getConnection();
                 Statement st = (myConnection == null) ? null : myConnection.createStatement()) {
 
-            if (myConnection == null)
-                throw new SQLException ("Database connection null");
+
 
             st.executeUpdate("insert into Employee(fname,lname,postcode,address,nin,bankAccount, startingSalary, isManager, department)" +
                     " values " + values);

@@ -18,11 +18,12 @@ public class GetEmployee {
         List<Employee> bigEmps = new ArrayList<> ();
         ResultSet rs = null;
 
-        try (Connection myConnection = getConnection();
-             Statement st = (myConnection == null) ? null : myConnection.createStatement()) {
+        try {Connection con = getConnection();
+            Statement st = con.createStatement();
+             //Statement st = (myConnection == null) ? null : myConnection.createStatement()) {
 
-            if (myConnection == null)
-                throw new SQLException ("Database connection null");
+            //if (myConnection == null)
+               // throw new SQLException ("Database connection null");
 
             rs = st.executeQuery("select * from Employee");
 
