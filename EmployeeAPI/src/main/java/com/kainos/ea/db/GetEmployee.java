@@ -1,5 +1,7 @@
 package com.kainos.ea.db;
 
+import com.kainos.ea.resources.Employee;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -28,8 +30,8 @@ public class GetEmployee {
                 Employee dbEmp = new Employee(
                         rs.getString("fname"), rs.getString("lname"),
                         rs.getString("postcode"),rs.getString("address"),
-                        rs.getInt("nin"), rs.getString("bank_account"),
-                        rs.getFloat("starting_salary"), rs.getInt("isManager"), rs.getString("department"));
+                        rs.getString("nin"), rs.getString("bank_account"),
+                        rs.getFloat("starting_salary"), rs.getBoolean("isManager"), rs.getString("department"));
                 bigEmps.add(dbEmp);
             }
 

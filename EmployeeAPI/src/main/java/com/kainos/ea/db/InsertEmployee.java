@@ -1,5 +1,7 @@
 package com.kainos.ea.db;
 
+import com.kainos.ea.resources.Employee;
+
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -21,17 +23,17 @@ public class InsertEmployee {
 
         String values = "";
 
-        values = "('" + employeesToAdd.get(0).getFName() + "', '" + employeesToAdd.get(0).getLName() + "', '" + employeesToAdd.get(0).getPostCode() +
-                "', '" + employeesToAdd.get(0).getAddress() + "', " +employeesToAdd.get(0).getNIN() + ", '" + employeesToAdd.get(0).getBankAccount()
-                + "', '" + employeesToAdd.get(0).getStartingSalary() + "', '" + employeesToAdd.get(0).getIsManager() + "', '" + getDepartment() + "')";
+        values = "('" + employeesToAdd.get(0).getFname() + "', '" + employeesToAdd.get(0).getLname() + "', '" + employeesToAdd.get(0).getPostcode() +
+                "', '" + employeesToAdd.get(0).getAddress() + "', " +employeesToAdd.get(0).getNin() + ", '" + employeesToAdd.get(0).getBankAccount()
+                + "', '" + employeesToAdd.get(0).getStartingSalary() + "', '" + employeesToAdd.get(0).getIsManager() + "', '" + employeesToAdd.get(0).getDepartment() + "')";
 
         if(employeesToAdd.size() > 1) {
 
             for (Employee employee : employeesToAdd) {
 
-                values = values + ",('" + employee.getFname() + "', '" + employee.getLName() + "', '" + employee.getPostcode() +
-                        "', '" + employee.getAddress() + "', '" + employee.getNIN() + "', '"
-                        + employee.getBankAccount() + "', '" + getStartingSalary() + "', '" + getIsManager() + "', '" + getDepartment() + "')";
+                values = values + ",('" + employee.getFname() + "', '" + employee.getLname() + "', '" + employee.getPostcode() +
+                        "', '" + employee.getAddress() + "', '" + employee.getNin() + "', '"
+                        + employee.getBankAccount() + "', '" + employee.getStartingSalary() + "', '" + employee.getIsManager() + "', '" + employee.getDepartment() + "')";
 
             }
 
