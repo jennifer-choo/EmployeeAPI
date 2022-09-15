@@ -1,11 +1,15 @@
 package com.kainos.ea.resources;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import com.kainos.ea.db.GetEmployee;
+import com.kainos.ea.db.InsertEmployee;
+import io.swagger.annotations.Api;
+
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
+@Path("/api")
+@Api("employee")
 public class WebService {
 
     @GET
@@ -13,8 +17,17 @@ public class WebService {
     @Produces(MediaType.APPLICATION_JSON)
     public List<Employee> getEmployees() {
 
-        List<Employee> emps = DatabaseEmployee.getEmployees();
+        List<Employee> emps = GetEmployee.getEmployees();
         return emps;
+
+    }
+
+    @POST
+    @Path("/addEmployees")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public void getEmployees(List<Employee> employees) {
+
+        InsertEmployee.insertEmployees(employees);
 
     }
 }

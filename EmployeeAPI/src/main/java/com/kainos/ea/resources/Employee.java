@@ -1,6 +1,5 @@
 package com.kainos.ea.resources;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Employee{
@@ -14,8 +13,27 @@ public class Employee{
     private double startingSalary;
     private boolean isManager;
     private String department;
-    public Employee(short number, int salary, String name) {
-    }
+
+    public Employee(@JsonProperty("fname") String fname,
+                @JsonProperty("lname") String lname,
+                @JsonProperty("postcode") String postcode,
+                @JsonProperty("address") String address,
+                @JsonProperty("nin") String nin,
+                @JsonProperty("bankAccount") String bankAccount,
+        @JsonProperty("startingSalary") double startingSalary,
+        @JsonProperty("isManager") boolean isManager,
+        @JsonProperty("department") String department) {
+            this.setFname(fname);
+            this.setLname(lname);
+            this.setPostcode(postcode);
+            this.setAddress(address);
+            this.setNin(nin);
+            this.setBankAccount(bankAccount);
+            this.setStartingSalary(startingSalary);
+            this.setIsManager(isManager);
+            this.setDepartment(department);
+        }
+
 
     public short getNumber() {
         return number;
@@ -73,7 +91,7 @@ public class Employee{
         this.bankAccount = bankAccount;
     }
 
-    public double getSalary() {
+    public double getStartingSalary() {
         return startingSalary;
     }
 
@@ -98,7 +116,7 @@ public class Employee{
     }
 
     public int calcPay(){
-        return (int) (getSalary() / 12);
+        return (int) (getStartingSalary () / 12);
     }
 
     @Override
@@ -106,30 +124,11 @@ public class Employee{
         String message =
                 String.format("Employee %d: %s, %s, £%,.2f. "
                         ,
-                        getNumber(), getFname(), getLname(), (float) getSalary());
+                        getNumber(), getFname(), getLname(), (float) getStartingSalary ());
         return message;
     }
 
-    @JsonCreator
-    public void Message(@JsonProperty("fname") String fname,
-                        @JsonProperty("lname") String lname,
-                        @JsonProperty("postcode") String postcode,
-                        @JsonProperty("address") String address,
-                        @JsonProperty("nin") String nin,
-                        @JsonProperty("bankAccount") String bankAccount,
-                        @JsonProperty("startingSalary") double startingSalary,
-                        @JsonProperty("isManager") boolean isManager,
-                        @JsonProperty("department") String department) {
-        this.setFname(fname);
-        this.setLname(lname);
-        this.setPostcode(postcode);
-        this.setAddress(address);
-        this.setNin(nin);
-        this.setBankAccount(bankAccount);
-        this.setStartingSalary(startingSalary);
-        this.setIsManager(isManager);
-        this.setDepartment(department);
-    }
+
 
 
 }
