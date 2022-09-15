@@ -1,5 +1,6 @@
 package com.kainos.ea.resources;
 
+import com.kainos.ea.db.GetEmployee;
 import com.kainos.ea.db.InsertEmployee;
 import io.swagger.annotations.Api;
 
@@ -16,7 +17,7 @@ public class WebService {
     @Produces(MediaType.APPLICATION_JSON)
     public List<Employee> getEmployees() {
 
-        List<Employee> emps = DatabaseEmployee.getEmployees();
+        List<Employee> emps = GetEmployee.getEmployees();
         return emps;
 
     }
