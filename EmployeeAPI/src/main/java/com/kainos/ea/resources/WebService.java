@@ -1,11 +1,12 @@
 package com.kainos.ea.resources;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import com.kainos.ea.db.InsertEmployee;
+
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
+@Path("/api")
 public class WebService {
 
     @GET
@@ -15,6 +16,15 @@ public class WebService {
 
         List<Employee> emps = DatabaseEmployee.getEmployees();
         return emps;
+
+    }
+
+    @POST
+    @Path("/addEmployees")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public void getEmployees(List<Employee> employees) {
+
+        InsertEmployee.insertEmployees(employees);
 
     }
 }
